@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "886901393624",
+    "project_id": "vision-assist-79422",
+    "storage_bucket": "vision-assist-79422.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886901393624:android:1ac59a78fd7a342bbaefad",
+        "android_client_info": {
+          "package_name": "com.visionassist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC1uljZVk-XXESrWsOvwzEVIhM2tZw3QqI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
