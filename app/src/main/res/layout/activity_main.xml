@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!-- ══════════ LOGIN / VOICE SCREEN ══════════ -->
+    <LinearLayout
+        android:id="@+id/loginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="28dp"
+        android:background="#000000">
+
+        <!-- Pulsing mic icon (large for low vision) -->
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:text="🎙"
+            android:textSize="72sp"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Microphone icon"/>
+
+        <!-- App name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VisionAssist"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Your Voice. Your Guide."
+            android:textColor="#88FFFFFF"
+            android:textSize="16sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"/>
+
+        <!-- Voice status — what the assistant is saying/hearing -->
+        <TextView
+            android:id="@+id/tvVoiceStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Starting voice assistant..."
+            android:textColor="#1EC878"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:lineSpacingMultiplier="1.4"
+            android:padding="20dp"
+            android:background="#1A1EC878"
+            android:layout_marginBottom="32dp"
+            android:contentDescription="Voice assistant status"
+            android:accessibilityLiveRegion="assertive"/>
+
+        <!-- Hidden fields — filled by voice, not shown prominently -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:alpha="0.4">
+
+            <EditText
+                android:id="@+id/etUsername"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Username (voice filled)"
+                android:textColorHint="#44FFFFFF"
+                android:textColor="#AAFFFFFF"
+                android:textSize="15sp"
+                android:inputType="text"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="#11FFFFFF"
+                android:layout_marginBottom="8dp"
+                android:focusable="false"
+                android:contentDescription="Username field filled by voice"/>
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Password (voice filled)"
+                android:textColorHint="#44FFFFFF"
+                android:textColor="#AAFFFFFF"
+                android:textSize="15sp"
+                android:inputType="textPassword"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:background="#11FFFFFF"
+                android:focusable="false"
+                android:contentDescription="Password field filled by voice"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="No touching needed — just speak"
+            android:textColor="#33FFFFFF"
+            android:textSize="13sp"
+            android:layout_gravity="center"
+            android:layout_marginTop="24dp"/>
+
+    </LinearLayout>
+
+    <!-- ══════════ CAMERA / DETECTION SCREEN ══════════ -->
+    <LinearLayout
+        android:id="@+id/cameraLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="#000000">
+
+        <!-- Live camera feed -->
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="Live camera obstacle detection"/>
+
+        <!-- Detection HUD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#CC000000"
+            android:padding="16dp">
+
+            <!-- What was detected -->
+            <TextView
+                android:id="@+id/tvDetection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scanning..."
+                android:textColor="#1EC878"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="12dp"
+                android:layout_marginBottom="8dp"
+                android:contentDescription="Detection result"
+                android:accessibilityLiveRegion="assertive"/>
+
+            <!-- Instruction hint -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Listening and guiding you automatically"
+                android:textColor="#55FFFFFF"
+                android:textSize="13sp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

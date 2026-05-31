@@ -1,0 +1,5 @@
+com.visionassist.test.app-androidTest-0 C:\Obstacle Detector\VisionAssist\android\app\build\generated\res\resValues\androidTest\debug
+com.visionassist.test.app-updated_navigation_xml-1 C:\Obstacle Detector\VisionAssist\android\app\build\generated\updated_navigation_xml\debugAndroidTest
+com.visionassist.test.app-mergeDebugAndroidTestResources-2 C:\Obstacle Detector\VisionAssist\android\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.visionassist.test.app-mergeDebugAndroidTestResources-3 C:\Obstacle Detector\VisionAssist\android\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.visionassist.test.app-debugAndroidTest-4 C:\Obstacle Detector\VisionAssist\android\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

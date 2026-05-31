@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0A0A0F">
+
+    <!-- ════════ LOGIN SCREEN ════════ -->
+    <LinearLayout
+        android:id="@+id/loginLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="32dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="👁"
+            android:textSize="64sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VisionAssist"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Voice-guided obstacle detection"
+            android:textColor="#88FFFFFF"
+            android:textSize="15sp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="40dp"/>
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:hint="Username"
+            android:textColorHint="#66FFFFFF"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="#22FFFFFF"
+            android:layout_marginBottom="12dp"
+            android:contentDescription="Username input"/>
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:hint="Password"
+            android:textColorHint="#66FFFFFF"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:inputType="textPassword"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:background="#22FFFFFF"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Password input"/>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:text="SIGN IN"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#1EC878"
+            android:textColor="#071A07"
+            android:contentDescription="Sign in button"/>
+
+    </LinearLayout>
+
+    <!-- ════════ CAMERA SCREEN ════════ -->
+    <LinearLayout
+        android:id="@+id/cameraLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Live camera preview -->
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="Live camera feed"/>
+
+        <!-- Bottom HUD -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#0D1A0D"
+            android:padding="16dp">
+
+            <!-- Detection status text -->
+            <TextView
+                android:id="@+id/tvStatus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Scanning..."
+                android:textColor="#1EC878"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:padding="14dp"
+                android:background="#1A1EC878"
+                android:layout_marginBottom="12dp"
+                android:contentDescription="Detection status"
+                android:accessibilityLiveRegion="assertive"/>
+
+            <!-- Buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnSOS"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1"
+                    android:text="SOS"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:backgroundTint="#DC3232"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="Emergency SOS"/>
+
+                <Button
+                    android:id="@+id/btnVoice"
+                    android:layout_width="0dp"
+                    android:layout_height="64dp"
+                    android:layout_weight="1.5"
+                    android:text="VOICE ON"
+                    android:textSize="16sp"
+                    android:backgroundTint="#142A1E"
+                    android:textColor="#1EC878"
+                    android:contentDescription="Voice is active"/>
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,10 @@
+R_DEF: Internal format may change without notice
+local
+id cameraLayout
+id etPassword
+id etUsername
+id loginLayout
+id previewView
+id tvDetection
+id tvVoiceStatus
+layout activity_main
