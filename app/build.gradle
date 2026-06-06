@@ -1,5 +1,7 @@
 plugins {
-    id 'com.android.application' version '8.13.2' apply true
+    id 'com.android.application'        // ← no version here
+    id 'org.jetbrains.kotlin.android'   // ← no version here
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -103,4 +105,25 @@ dependencies {
     testImplementation 'kotlinx-coroutines-test:org.jetbrains.kotlinx:1.7.3'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation platform('com.google.firebase:firebase-bom:34.14.0')
+    implementation 'com.google.firebase:firebase-analytics'
+
+    // Import Firebase BoM (Bill of Materials)
+    implementation platform('com.google.firebase:firebase-bom:34.14.0')
+    
+    // Firebase Authentication
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    
+    // Firebase Analytics
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    
+    // Kotlin Coroutines for Firebase async
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3'
+    
+    // Existing dependencies...
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
 }
+
+apply plugin: 'com.google.gms.google-services'
