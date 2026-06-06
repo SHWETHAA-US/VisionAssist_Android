@@ -299,7 +299,7 @@ Examples:
 |-----------|--------|--------|
 | Core features (detection, OCR, TTS) | ✅ Complete | v1.0 |
 | Firebase Authentication | ✅ Complete | v1.0 |
-| CI/CD Pipeline | 🔄 In Progress | v1.0 |
+| CI/CD Pipeline | ✅ Complete | v1.0 |
 | Kotlin Migration | 🔄 In Progress | v1.1 |
 | UI/Instrumented Tests | 🔄 In Progress | v1.1 |
 | Play Store Release | 📋 Planned | Q3 2026 |
