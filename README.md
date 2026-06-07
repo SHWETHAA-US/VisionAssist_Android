@@ -1,5 +1,4 @@
 # VisionAssist Android
-[![Kotlin](https://img.shields.io/badge/Kotlin-44.4%25-7F52FF?logo=kotlin)](https://kotlinlang.org)
 [![Java](https://img.shields.io/badge/Java-55.6%25-007396?logo=java)](https://www.java.com)
 
 **An AI-powered Android application that assists visually impaired users** through real-time object detection, OCR, and speech feedback — built with Google ML Kit, CameraX, and Firebase.
