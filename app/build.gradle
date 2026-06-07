@@ -8,9 +8,6 @@ android {
     namespace 'com.visionassist'
     compileSdk 34
 
-    aaptOptions {
-        noCompress "tflite"
-    }
 
     defaultConfig {
         applicationId "com.visionassist"
@@ -40,6 +37,9 @@ android {
 
     buildFeatures {
         viewBinding true
+    }
+    androidResources {
+        noCompress 'tflite'
     }
 }
 
