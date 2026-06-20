@@ -6,10 +6,12 @@
  
 [📥 Download APK](https://github.com/SHWETHAA-US/VisionAssist_Android/releases/tag/v1.0.0) · [🐛 Report Bug](https://github.com/SHWETHAA-US/VisionAssist_Android/issues) · [💬 Discussions](https://github.com/SHWETHAA-US/VisionAssist_Android/discussions)
 
+---
 
 ## 🎯 Problem Statement
  
 Over **285 million people** worldwide live with visual impairment. Existing assistive tools are often expensive, require constant internet, or fail to provide real-time contextual feedback. VisionAssist bridges this gap with a **free, offline-capable, AI-powered Android app** that narrates the user's surroundings in real time.
+
 
 ## Demo:
 https://github.com/user-attachments/assets/edf363ed-7b7d-41a0-8d3e-4c2654b28126
@@ -27,6 +29,7 @@ https://github.com/user-attachments/assets/edf363ed-7b7d-41a0-8d3e-4c2654b28126
 | 🔐 **Secure Authentication** | Email/password with strong validation, certificate pinning | Firebase Auth |
 | ♿ **TalkBack Compatible** | Full compatibility with Android's accessibility screen reader | Android Accessibility |
 <br>
+
 ## 📐 Architecture
 
 ```
@@ -198,20 +201,6 @@ All permissions are requested at runtime with user-friendly prompts:
 3. Monitor Firebase Crashlytics for crashes
 4. Use Firebase Test Lab for real-device testing
 
-## 📦 Installation Options
-
-### Option 1: Build Locally
-```bash
-./gradlew assembleDebug
-# APK available at: app/build/outputs/apk/debug/app-debug.apk
-adb install app/build/outputs/apk/debug/app-debug.apk
-```
-
-### Option 2: GitHub Releases (Planned)
-[Download latest debug APK](https://github.com/SHWETHAA-US/VisionAssist_Android/releases)
-
-### Option 3: Google Play Store (In Progress)
-[Play Store Link](https://play.google.com) *(coming soon)*
 
 ## 🧪 Testing
 
@@ -251,34 +240,16 @@ Tests cover:
 ### Build Issues
 
 **"google-services.json not found"**
-- Ensure you downloaded it from Firebase Console
-- Place it in `app/` directory (not `app/src/`)
-
-**"Could not resolve com.google.firebase:firebase-auth"**
-- Run `./gradlew clean`
-- Sync Gradle: File → Sync Now
-
-### Runtime Issues
-
-**Camera not opening**
-- Grant CAMERA permission when prompted
-- Check: Settings → Apps → VisionAssist → Permissions → Camera
-
-**TTS not speaking**
-- Grant RECORD_AUDIO permission (voice input requires it)
-- Check device volume is not muted
-- Verify TTS language pack installed: Settings → Accessibility → Text-to-Speech
-
-**Firebase authentication fails**
-- Ensure Firebase project has Email/Password enabled
-- Check `google-services.json` is correctly placed
-- Verify app's package name matches Firebase project
-
-### Performance Optimization
-
-- **Frame skipping:** Adaptively set based on device capability
-- **Model caching:** ML Kit models cached in `app/cache/`
-- **Battery drain:** Monitor via Android Profiler (View → Profiler)
+→ Download from Firebase Console, place in `app/` (not `app/src/`)
+ 
+**"Could not resolve firebase-auth"**
+→ Run `./gradlew clean`, then File → Sync Project with Gradle Files
+ 
+**Camera not opening** → Grant CAMERA permission: Settings → Apps → VisionAssist → Permissions
+ 
+**TTS not speaking** → Check device volume · Verify TTS language pack: Settings → Accessibility → Text-to-Speech
+ 
+**Firebase auth failing** → Confirm Email/Password is enabled in Firebase Console · Verify `google-services.json` placement and package name match
 
 ## 📖 Documentation
 
@@ -299,7 +270,7 @@ We welcome contributions from the community! Please follow these guidelines:
 5. Ensure CI passes and at least one review before merge
 
 ### Code Standards
-- **Language:** Prefer Kotlin; migrate Java to Kotlin incrementally
+- **Language:** java 25
 - **Formatting:** Run `./gradlew ktlintFormat` before committing
 - **Testing:** Add unit tests for new features; aim for >80% coverage
 - **Accessibility:** Test with TalkBack enabled
