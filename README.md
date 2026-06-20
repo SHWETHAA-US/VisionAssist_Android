@@ -1,22 +1,69 @@
-# VisionAssist Android
+# Vision Assist Android
 [![Java](https://img.shields.io/badge/Java25-007396?logo=java)](https://www.java.com)
 
-**An AI-powered Android application that assists visually impaired users** through real-time object detection, OCR, and speech feedback — built with Google ML Kit, CameraX, and Firebase.
+**An AI-powered Android application that**
+**empowers visually impaired users to navigate the world independently — through real-time AI, offline-first design, and accessibility-first engineering.**
+ 
+[📥 Download APK](https://github.com/SHWETHAA-US/VisionAssist_Android/releases/tag/v1.0.0) · [🐛 Report Bug](https://github.com/SHWETHAA-US/VisionAssist_Android/issues) · [💬 Discussions](https://github.com/SHWETHAA-US/VisionAssist_Android/discussions)
 
-## 🎯 Mission
 
-Enable visually impaired individuals to navigate independently with confidence by providing real-time audio and haptic feedback about their surroundings.
+## 🎯 Problem Statement
+ 
+Over **285 million people** worldwide live with visual impairment. Existing assistive tools are often expensive, require constant internet, or fail to provide real-time contextual feedback. VisionAssist bridges this gap with a **free, offline-capable, AI-powered Android app** that narrates the user's surroundings in real time.
 
-## ✨ Features
+## Demo:
+https://github.com/user-attachments/assets/edf363ed-7b7d-41a0-8d3e-4c2654b28126
+ 
+## ✨ Key Features
+ 
+| Feature | Description | Tech Used |
+|---------|-------------|-----------|
+| 🔍 **Real-time Object Detection** | Detects and announces objects with bounding boxes instantly | Google ML Kit |
+| 📝 **OCR / Text Recognition** | Reads signs, labels, and text aloud in real time | ML Kit Text Recognition |
+| 🔊 **Text-to-Speech Feedback** | Clear, context-aware audio narration | Android TTS API |
+| 🤚 **Haptic Navigation Cues** | Vibration patterns as tactile feedback signals | Android Vibrator API |
+| 🎙️ **Voice Control** | Hands-free operation via voice commands | Android SpeechRecognizer |
+| 📶 **Offline-First Architecture** | Core features work without internet after model caching | ML Kit On-Device |
+| 🔐 **Secure Authentication** | Email/password with strong validation, certificate pinning | Firebase Auth |
+| ♿ **TalkBack Compatible** | Full compatibility with Android's accessibility screen reader | Android Accessibility |
+<br>
+## 📐 Architecture
 
-- **Real-time Object Detection** with bounding boxes and speech output
-- **Image Recognition & OCR** with Text-to-Speech feedback
-- **Offline-First Architecture** — core features work without internet
-- **Secure Authentication** via Firebase with strong password enforcement
-- **Haptic Feedback** for tactile navigation cues
-- **Voice Control** for hands-free operation
-- **Accessibility-First Design** compatible with TalkBack screen reader
+```
+┌────────────────────────────────────────────────┐
+│           MainActivity                         │
+│         Voice & Permission handling            │
+└──────────┬────────────┬────────────┬───────────┘
+           │            │            │
+      ┌────▼─┐    ┌─────▼────┐   ┌──▼─────┐
+      │Camera│    │ ML Kit   │   │Firebase│
+      │  (CX)│    │  Models  │   │  Auth  │
+      └────┬─┘    └─────┬────┘   └──┬─────┘
+           │            │            │
+      ┌────▼────────────▼────────────▼──┐
+      │  State Management (FSM+Coroutines)│
+      │  Navigation, Model Loading        │
+      └────┬────────┬────────────────────┘
+           │        │
+    ┌──────▼──┐  ┌──▼──────────┐
+    │  TTS    │  │   Haptics   │
+    │ (Audio) │  │ (Vibration) │
+    └─────────┘  └─────────────┘
+```
 
+ 
+### Module Breakdown
+ 
+| Module | Responsibility |
+|--------|----------------|
+| **MainActivity** | Entry point, permission requests, voice recognition orchestration |
+| **AuthManager** | Firebase signup/login with strong password validation |
+| **MLKitModelManager** | Load & cache ML Kit models, inference coordination |
+| **NavigationFSM** | Finite State Machine for predictable app state transitions |
+| **BluetoothHapticManager** | Haptic feedback patterns for navigation cues |
+| **CameraX Manager** | Frame capture, image preprocessing pipeline |
+ 
+---
 ## 📋 System Requirements
 
 - **Android SDK:** minSdkVersion 26 (Android 8.0), targetSdkVersion 34 (Android 14)
@@ -38,8 +85,7 @@ Enable visually impaired individuals to navigate independently with confidence b
 | **State Management** | Kotlin Coroutines · StateFlow | Async operations, reactive UI |
 | **Testing** | JUnit 4, Espresso, Robolectric | Unit & instrumented tests |
 | **CI/CD** | GitHub Actions | Automated testing & builds |
-## Demo:
-https://github.com/user-attachments/assets/edf363ed-7b7d-41a0-8d3e-4c2654b28126
+
 ## 🚀 Quick Start
 
 ### Prerequisites
@@ -55,7 +101,7 @@ java -version
 # File > Open > Select this directory
 ```
 
-### Firebase Setup (Critical)
+### Firebase Setup:
 
 1. **Create Firebase Project:**
    - Go to [Firebase Console](https://console.firebase.google.com)
@@ -105,41 +151,22 @@ java -version
 # Build release APK (unsigned)
 ./gradlew assembleRelease
 ```
-
-## 📐 Architecture
-
+ 
+## 📦 Installation
+ 
+### Option 1: Download APK (Easiest)
+👉 [**Download v1.0.0 from Releases**](https://github.com/SHWETHAA-US/VisionAssist_Android/releases/tag/v1.0.0)
+ 
+### Option 2: Build Locally
+```bash
+./gradlew assembleDebug
+adb install app/build/outputs/apk/debug/app-debug.apk
 ```
-┌─────────────────────────────────────────────────────┐
-│           MainActivity (Kotlin)                      │
-│         Voice & Permission handling                  │
-└──────────┬────────────┬────────────┬────────────────┘
-           │            │            │
-      ┌────▼─┐    ┌─────▼────┐   ┌──▼─────┐
-      │Camera│    │ ML Kit   │   │Firebase│
-      │  (CX)│    │  Models  │   │  Auth  │
-      └────┬─┘    └─────┬────┘   └──┬─────┘
-           │            │            │
-      ┌────▼────────────▼────────────▼──┐
-      │  State Management (FSM + Coroutines)  │
-      │  Navigation, Model Loading      │
-      └────┬────────┬────────────────────┘
-           │        │
-    ┌──────▼──┐  ┌──▼──────────┐
-    │  TTS    │  │   Haptics   │
-    │ (Audio) │  │ (Vibration) │
-    └─────────┘  └─────────────┘
-```
-
-### Module Breakdown
-
-| Module | Responsibility |
-|--------|----------------|
-| **MainActivity** | Entry point, permission requests, voice recognition orchestration |
-| **AuthManager** | Firebase sign-up/login with strong password validation |
-| **MLKitModelManager** | Load & cache ML Kit models, inference coordination |
-| **NavigationFSM** | Finite State Machine for app state transitions |
-| **BluetoothHapticManager** | Haptic feedback patterns for navigation |
-| **CameraX Manager** | Frame capture, image preprocessing |
+ 
+### Option 3: Google Play Store
+🔜 Coming Q3 2026
+ 
+---
 
 ## 📱 Permissions
 
