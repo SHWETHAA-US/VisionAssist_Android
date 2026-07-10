@@ -80,7 +80,7 @@ https://github.com/user-attachments/assets/edf363ed-7b7d-41a0-8d3e-4c2654b28126
 
 | Component | Technology | Purpose |
 |-----------|-----------|----------|
-| **Language** | Java (56%) · Kotlin (44%) | App development |
+| **Language** | Java | App development |
 | **ML Framework** | Google ML Kit | Object detection, image classification |
 | **Camera** | CameraX | Modern camera API with lifecycle awareness |
 | **Authentication** | Firebase Auth | Secure login/signup |
